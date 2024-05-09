@@ -27,5 +27,6 @@ public class MainMenuMgr : MonoBehaviour
     private void OnExitClick()
     {
         Application.Quit();
+        Debug.Log("Exit");
     }
 }
