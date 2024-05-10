@@ -8,7 +8,7 @@ using UnityEngine.UI;
  
 public class TimerHandler : MonoBehaviour
 {
-    public TextMeshPro txtTimer;
+    public TextMeshProUGUI txtTimer;
     public GameObject pnlGameOver;
      
      

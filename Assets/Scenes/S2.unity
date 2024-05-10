@@ -4672,7 +4672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 093362b61c0991748ad04a405306ba9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txtTimer: {fileID: 0}
+  txtTimer: {fileID: 199927273}
   pnlGameOver: {fileID: 57328390}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -4681,7 +4681,7 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 1995032950}
   - {fileID: 1932761847}
+  - {fileID: 999893621}
   - {fileID: 477114775}
   - {fileID: 2094134884}
   - {fileID: 130777409}
-  - {fileID: 999893621}
