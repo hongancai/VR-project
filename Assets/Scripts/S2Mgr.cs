@@ -26,11 +26,11 @@ public class S2Mgr : MonoBehaviour
         GameDb.IsPause = !GameDb.IsPause;
         if (GameDb.IsPause)
         {
-            btnPause.GetComponentInChildren<Text>().text = "PLAY";
+            btnPause.GetComponentInChildren<TextMeshProUGUI>().text = "PLAY";
         }
         else
         {
-            btnPause.GetComponentInChildren<Text>().text = "PAUSE";
+            btnPause.GetComponentInChildren<TextMeshProUGUI>().text = "PAUSE";
         }
         GameDb.Save();
     }
