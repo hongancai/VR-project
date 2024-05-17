@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class TimerHandler : MonoBehaviour
 {
     public TextMeshProUGUI txtTimer;
-    public GameObject pnlGameOver;
+    public GameObject pnlTimeOver;
      
      
     private Timer _timer;
@@ -22,7 +22,7 @@ public class TimerHandler : MonoBehaviour
          
         SetTimer();
          
-        pnlGameOver.SetActive(false);
+        pnlTimeOver.SetActive(false);
     }
  
     void Update()
@@ -43,7 +43,7 @@ public class TimerHandler : MonoBehaviour
          
         if (GameDb.Count <= 0)
         {
-            pnlGameOver.SetActive(true);
+            pnlTimeOver.SetActive(true);
             // do something for game over 
         }
         else

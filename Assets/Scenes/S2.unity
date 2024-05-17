@@ -3687,7 +3687,7 @@ Transform:
   m_GameObject: {fileID: 999893620}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.000000007450581, z: 17.61}
+  m_LocalPosition: {x: 0, y: 0.000000007450581, z: 25.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4482,6 +4482,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1536508258}
+  - component: {fileID: 1536508259}
   m_Layer: 5
   m_Name: HP
   m_TagString: Untagged
@@ -4511,6 +4512,22 @@ RectTransform:
   m_AnchoredPosition: {x: 4, y: 4.7999983}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1536508259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536508257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ad0406143b0144ca36fc2ed9cf2eef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heart1: {fileID: 1019954503}
+  heart2: {fileID: 1291481057}
+  heart3: {fileID: 44660784}
+  pnlGameOver: {fileID: 1502996123}
 --- !u!1 &1606385626
 GameObject:
   m_ObjectHideFlags: 0
@@ -6201,7 +6218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txtTimer: {fileID: 199927273}
-  pnlGameOver: {fileID: 1224758034}
+  pnlTimeOver: {fileID: 0}
 --- !u!1 &2124424513
 GameObject:
   m_ObjectHideFlags: 0
