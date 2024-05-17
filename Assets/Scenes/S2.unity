@@ -3028,7 +3028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05f288c5a7d6f44f80f415d67fb31eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restartbtn: {fileID: 0}
+  restartbtn: {fileID: 740978492}
 --- !u!1 &750925409
 GameObject:
   m_ObjectHideFlags: 0
@@ -4032,6 +4032,7 @@ GameObject:
   - component: {fileID: 1369748126}
   - component: {fileID: 1369748125}
   - component: {fileID: 1369748124}
+  - component: {fileID: 1369748127}
   m_Layer: 5
   m_Name: ExitBtn
   m_TagString: Untagged
@@ -4141,6 +4142,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369748122}
   m_CullTransparentMesh: 1
+--- !u!114 &1369748127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369748122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e30306fe3f3e88479e2ced585619ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exitbtn: {fileID: 1369748124}
 --- !u!1 &1475487908
 GameObject:
   m_ObjectHideFlags: 0
@@ -4153,6 +4167,7 @@ GameObject:
   - component: {fileID: 1475487912}
   - component: {fileID: 1475487911}
   - component: {fileID: 1475487910}
+  - component: {fileID: 1475487913}
   m_Layer: 5
   m_Name: ExitBtn
   m_TagString: Untagged
@@ -4262,6 +4277,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475487908}
   m_CullTransparentMesh: 1
+--- !u!114 &1475487913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475487908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e30306fe3f3e88479e2ced585619ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exitbtn: {fileID: 1475487910}
 --- !u!1 &1502996123
 GameObject:
   m_ObjectHideFlags: 0
@@ -5897,7 +5925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05f288c5a7d6f44f80f415d67fb31eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restartbtn: {fileID: 0}
+  restartbtn: {fileID: 2056067406}
 --- !u!1 &2094134881
 GameObject:
   m_ObjectHideFlags: 0
