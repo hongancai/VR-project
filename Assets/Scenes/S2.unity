@@ -822,7 +822,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 4936155116063307808, guid: 717ae472bb176864c8fa3f9a76d5d5a1, type: 3}
+  m_ModelPrefab: {fileID: -8679921383154817045, guid: 84c2b26f5e7133542b848a61cdfea098, type: 3}
   m_ModelParent: {fileID: 0}
   m_Model: {fileID: 0}
   m_AnimateModel: 0
@@ -1345,6 +1345,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 120023309}
   m_CullTransparentMesh: 1
+--- !u!1 &132673138 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1207504508055520, guid: 40e1839cf65329c4aa6373c29c2a062f, type: 3}
+  m_PrefabInstance: {fileID: 1808655645}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &190821992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,9 +1705,10 @@ GameObject:
   - component: {fileID: 275056649}
   - component: {fileID: 275056648}
   - component: {fileID: 275056647}
+  - component: {fileID: 275056650}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1793,6 +1799,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275056645}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &275056650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275056645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 227d228c5b118194ba069050151cbf5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &277250121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1844,6 +1862,10 @@ PrefabInstance:
     - target: {fileID: 5367978124743597531, guid: c92f34a05ad69814ab379a90227f7eaf, type: 3}
       propertyPath: m_Name
       value: SoccerBall_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5367978124743597531, guid: c92f34a05ad69814ab379a90227f7eaf, type: 3}
+      propertyPath: m_TagString
+      value: Ball
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2535,6 +2557,10 @@ PrefabInstance:
     - target: {fileID: 804786954997177528, guid: bdba71f8878efa74ebea7bdbd9308589, type: 3}
       propertyPath: m_Name
       value: Golf_ball_LowPOly
+      objectReference: {fileID: 0}
+    - target: {fileID: 804786954997177528, guid: bdba71f8878efa74ebea7bdbd9308589, type: 3}
+      propertyPath: m_TagString
+      value: Ball
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3727,6 +3753,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: volleyball
       objectReference: {fileID: 0}
+    - target: {fileID: 3590565491754773681, guid: bb0018446001beb4b9823dd1061bdf32, type: 3}
+      propertyPath: m_TagString
+      value: Ball
+      objectReference: {fileID: 0}
     - target: {fileID: 4224254293489874443, guid: bb0018446001beb4b9823dd1061bdf32, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3829,6 +3859,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: basketBall_mdl
       objectReference: {fileID: 0}
+    - target: {fileID: 5735968766111233133, guid: 244373c0583ec814fb00ea6f1633d3c0, type: 3}
+      propertyPath: m_TagString
+      value: Ball
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3871,8 +3905,8 @@ Transform:
   - {fileID: 406551488}
   - {fileID: 277250122}
   - {fileID: 969991339}
-  - {fileID: 1808655646}
   - {fileID: 993157977}
+  - {fileID: 1808655646}
   m_Father: {fileID: 477114775}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1019954501
@@ -4884,6 +4918,7 @@ GameObject:
   - component: {fileID: 1627303723}
   - component: {fileID: 1627303725}
   - component: {fileID: 1627303724}
+  - component: {fileID: 1627303726}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -4930,7 +4965,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score : 0'
+  m_text: Score:0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5007,6 +5042,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627303722}
   m_CullTransparentMesh: 1
+--- !u!114 &1627303726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627303722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a0904413400db441b8ca1a59520f11a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1627303724}
 --- !u!1001 &1808655645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5018,6 +5066,10 @@ PrefabInstance:
     - target: {fileID: 1207504508055520, guid: 40e1839cf65329c4aa6373c29c2a062f, type: 3}
       propertyPath: m_Name
       value: Rocket01_Grey
+      objectReference: {fileID: 0}
+    - target: {fileID: 1207504508055520, guid: 40e1839cf65329c4aa6373c29c2a062f, type: 3}
+      propertyPath: m_TagString
+      value: Bomb
       objectReference: {fileID: 0}
     - target: {fileID: 4590029787598350, guid: 40e1839cf65329c4aa6373c29c2a062f, type: 3}
       propertyPath: m_LocalScale.x
@@ -5041,7 +5093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4590029787598350, guid: 40e1839cf65329c4aa6373c29c2a062f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.83
+      value: 16.441
       objectReference: {fileID: 0}
     - target: {fileID: 4590029787598350, guid: 40e1839cf65329c4aa6373c29c2a062f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5074,13 +5126,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1207504508055520, guid: 40e1839cf65329c4aa6373c29c2a062f, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1808655649}
   m_SourcePrefab: {fileID: 100100000, guid: 40e1839cf65329c4aa6373c29c2a062f, type: 3}
 --- !u!4 &1808655646 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4590029787598350, guid: 40e1839cf65329c4aa6373c29c2a062f, type: 3}
   m_PrefabInstance: {fileID: 1808655645}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1808655649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132673138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41da6cbcd61f7cf45bc0be235a5d6512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  score: 0
+  isBomb: 1
+  playerCamera: {fileID: 0}
+  lifeManager: {fileID: 0}
 --- !u!1 &1843666238
 GameObject:
   m_ObjectHideFlags: 0
