@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert1
-    second: {fileID: 2100000, guid: 9497f05eaf0c95b4e90e6ad2833b41b0, type: 2}
+    second: {fileID: 5561349426305759274, guid: 5511d7562661fce4f9c06e27c8fab97a, type: 3}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert2
-    second: {fileID: 2100000, guid: 68a3fa6f00635494691a86db57daef91, type: 2}
+    second: {fileID: 8748892135801146194, guid: 5511d7562661fce4f9c06e27c8fab97a, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -100,7 +100,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.099999994
+    globalScale: 10
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
