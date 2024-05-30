@@ -6,7 +6,8 @@ TagManager:
   tags:
   - Wall
   - Ball
-  - Bomb
+  - Left Hand
+  - Right Hand
   layers:
   - Default
   - TransparentFX
