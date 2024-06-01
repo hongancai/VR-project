@@ -5,13 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
-  - Ball
-  - Left Hand
-  - Right Hand
-  - GolfBall
-  - Basketball
-  - SoccerBall
-  - Volleyball
+  - Soccer
+  - Target1
+  - Target2
+  - Target3
+  - Target4
+  - Target5
+  - Target6
   layers:
   - Default
   - TransparentFX

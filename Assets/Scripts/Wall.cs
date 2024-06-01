@@ -14,10 +14,9 @@ public class Wall : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         // 檢查碰撞的物件是否為球
-        if (collision.gameObject.CompareTag("GolfBall") ||
-            collision.gameObject.CompareTag("Basketball") ||
-            collision.gameObject.CompareTag("SoccerBall") ||
-            collision.gameObject.CompareTag("Volleyball"))
+        if (
+            collision.gameObject.CompareTag("Soccer") 
+           )
         {
             // 移除球
             Destroy(collision.gameObject);
