@@ -17,7 +17,7 @@ public class LifeManager : MonoBehaviour
     {
         pnlGameOver.SetActive(false);
     }
-    public void LoseLife()
+    public void ReduceLife()
     {
         lives--;
         UpdateLivesUI();

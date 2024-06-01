@@ -8,6 +8,10 @@ TagManager:
   - Ball
   - Left Hand
   - Right Hand
+  - GolfBall
+  - Basketball
+  - SoccerBall
+  - Volleyball
   layers:
   - Default
   - TransparentFX

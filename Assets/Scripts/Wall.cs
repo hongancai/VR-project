@@ -13,14 +13,20 @@ public class Wall : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ball"))
+        // 檢查碰撞的物件是否為球
+        if (collision.gameObject.CompareTag("GolfBall") ||
+            collision.gameObject.CompareTag("Basketball") ||
+            collision.gameObject.CompareTag("SoccerBall") ||
+            collision.gameObject.CompareTag("Volleyball"))
         {
-            lifeManager.LoseLife();
+            // 移除球
             Destroy(collision.gameObject);
-        }
-        else if (collision.gameObject.CompareTag("Bomb"))
-        {
-            Destroy(collision.gameObject);
+
+            // 扣減玩家生命
+            if (lifeManager != null)
+            { 
+                lifeManager.ReduceLife();
+            }
         }
     }
 }

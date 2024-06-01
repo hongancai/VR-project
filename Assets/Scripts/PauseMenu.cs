@@ -19,6 +19,15 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
+        if (isShow)
+        {
+            Time.timeScale = 0f; // 暫停遊戲
+        }
+        else
+        {
+            Time.timeScale = 1f; // 恢復遊戲
+        }
+
         pausepanel.SetActive(isShow);
     }
     private void MenuPressed(InputAction.CallbackContext context)
