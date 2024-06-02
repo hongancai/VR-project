@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class LifeManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class LifeManager : MonoBehaviour
     public Image heart3;
     
     public GameObject pnlGameOver;
+	public TextMeshProUGUI scoreText; 
 
     private int lives = 3;
     // Start is called before the first frame update

@@ -5,16 +5,20 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager Instance { get; private set; }
 
-    public GameObject soccerBallPrefab;
-    public Transform ballSpawnPoint;
+    public GameObject soccerPrefab; // 球的預製件
+    public Transform spawnPoint; // 生成球的位置
+    public float gameDuration = 180f; // 遊戲持續時間（秒）
 
-    void Awake()
+    private bool isGameOver = false;
+
+    private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -22,37 +26,58 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
-        StartCoroutine(SpawnBallRoutine());
+        StartCoroutine(GameLoop());
     }
 
-    private IEnumerator SpawnBallRoutine()
+    private IEnumerator GameLoop()
     {
-        while (true)
+        yield return StartCoroutine(Gameplay());
+
+        // 遊戲結束後的邏輯可以在這裡實現，例如顯示結算畫面等
+        Debug.Log("Game Over");
+    }
+
+    private IEnumerator Gameplay()
+    {
+        float startTime = Time.time;
+
+        while (!isGameOver && Time.time - startTime < gameDuration)
         {
+            SpawnBall();
             yield return new WaitForSeconds(Random.Range(3f, 5f)); // 每3到5秒生成一顆球
-            RespawnBall();
         }
+
+        isGameOver = true;
+        StopAllBalls(); // 停止所有球的運動
     }
 
     public void RespawnBall()
     {
-        GameObject newBall = Instantiate(soccerBallPrefab, ballSpawnPoint.position, Quaternion.identity);
-        Rigidbody rb = newBall.GetComponent<Rigidbody>();
-        if (rb != null)
+        if (!isGameOver)
         {
-            rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
-        }
-        XRGrabInteractable grabInteractable = newBall.GetComponent<XRGrabInteractable>();
-        if (grabInteractable != null)
-        {
-            grabInteractable.selectExited.AddListener(OnBallReleased);
+            StartCoroutine(SpawnBallWithDelay());
         }
     }
 
-    private void OnBallReleased(SelectExitEventArgs args)
+    private IEnumerator SpawnBallWithDelay()
     {
-        Destroy(args.interactable.gameObject);
+        yield return new WaitForSeconds(1f); // 延遲1秒再生成新的球
+        SpawnBall();
+    }
+
+    private void SpawnBall()
+    {
+        Instantiate(soccerPrefab, spawnPoint.position, spawnPoint.rotation); // 在spawnPoint位置生成球
+    }
+
+    private void StopAllBalls()
+    {
+        Soccer[] soccerBalls = FindObjectsOfType<Soccer>();
+        foreach (Soccer ball in soccerBalls)
+        {
+            Destroy(ball.gameObject); // 銷毀正在場景中移動的球
+        }
     }
 }
