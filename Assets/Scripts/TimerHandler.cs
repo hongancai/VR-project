@@ -80,4 +80,13 @@ public class TimerHandler : MonoBehaviour
             _timer.Stop();
         }
     }
+    private void TimeUp()
+    {
+        pnlTimeOver.SetActive(true);
+        
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.UpdateScoreUI(); // 更新時間到面板的分數顯示
+        }
+    }
 }

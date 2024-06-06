@@ -6,25 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class RestartBtn : MonoBehaviour
 {
-    public Button restartbtn; 
+    public Button restartBtn; 
     
-    // Start is called before the first frame update
     void Start()
     {
-        restartbtn.onClick.AddListener(Onrestartbtn);
+        restartBtn.onClick.AddListener(OnRestartBtnClick);
     }
     
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    private void Onrestartbtn()
+    private void OnRestartBtnClick()
     {
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.ResetGame();
+            GameManager.Instance.RestartGame();
         }
-        SceneManager.LoadScene("S2");
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class LifeManager : MonoBehaviour
@@ -11,11 +12,10 @@ public class LifeManager : MonoBehaviour
     public Image heart3;
 
     public GameObject pnlGameOver;
-    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreText; 
 
     private int lives = 3;
 
-    // Start is called before the first frame update
     void Start()
     {
         pnlGameOver.SetActive(false);
@@ -51,7 +51,15 @@ public class LifeManager : MonoBehaviour
     private void GameOver()
     {
         pnlGameOver.SetActive(true);
-        scoreText.text = "Score: " + ScoreManager.Instance.GetScore();
-        GameManager.Instance.SetGameOver();
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.SetGameOver(true);
+        }
+
+        if (ScoreManager.Instance != null)
+        {
+            scoreText.text = "Score: " + ScoreManager.Instance.GetScore().ToString();
+        }
     }
 }

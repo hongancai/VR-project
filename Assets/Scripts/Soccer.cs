@@ -23,24 +23,23 @@ public class Soccer : MonoBehaviour
         ChooseRandomTarget();
     }
 
-    private void OnBallReleased(SelectExitEventArgs args)
+ 	private void OnBallReleased(SelectExitEventArgs args)
+	{
+    if (GameManager.Instance != null)
     {
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.RespawnBall();
-        }
-
-        if (ScoreManager.Instance != null)
-        {
-            ScoreManager.Instance.AddScore(1);
-        }
-
-        Destroy(gameObject);
+        GameManager.Instance.RespawnBall();
     }
+
+    if (ScoreManager.Instance != null)
+    {
+        ScoreManager.Instance.AddScore(1);
+    }
+    Destroy(gameObject);
+	}
 
     private void ChooseRandomTarget()
     {
-        string[] targetTags = { "Target1", "Target2", "Target3", "Target4", "Target5", "Target6" };
+        string[] targetTags = { "Target1", "Target2", "Target3"};
         string randomTag = targetTags[Random.Range(0, targetTags.Length)];
         GameObject targetObject = GameObject.FindGameObjectWithTag(randomTag);
         if (targetObject != null)

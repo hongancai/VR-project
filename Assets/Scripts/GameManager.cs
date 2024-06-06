@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public GameObject soccerPrefab; // 球的預製件
+    public GameObject soccerPrefab; // 球的预制件
     public Transform spawnPoint; // 生成球的位置
-    public float gameDuration = 180f; // 遊戲持續時間（秒）
+    public float gameDuration = 180f; // 游戏持续时间（秒）
 
     private bool isGameOver = false;
+    private bool isBallDestroyed = false;
 
     private void Awake()
     {
@@ -35,7 +36,6 @@ public class GameManager : MonoBehaviour
     {
         yield return StartCoroutine(Gameplay());
 
-        // 遊戲結束後的邏輯可以在這裡實現，例如顯示結算畫面等
         Debug.Log("Game Over");
     }
 
@@ -46,16 +46,16 @@ public class GameManager : MonoBehaviour
         while (!isGameOver && Time.time - startTime < gameDuration)
         {
             SpawnBall();
-            yield return new WaitForSeconds(Random.Range(3f, 5f)); // 每3到5秒生成一顆球
+            yield return new WaitForSeconds(3f); // 每3秒生成一颗球
         }
 
         isGameOver = true;
-        StopAllBalls(); // 停止所有球的運動
+        StopAllBalls(); // 结束游戏时停止所有球的运动
     }
 
     public void RespawnBall()
     {
-        if (!isGameOver)
+        if (!isGameOver && !isBallDestroyed) // 当游戏未结束且球未被摧毁时重新生成球
         {
             StartCoroutine(SpawnBallWithDelay());
         }
@@ -63,16 +63,23 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SpawnBallWithDelay()
     {
-        yield return new WaitForSeconds(1f); // 延遲1秒再生成新的球
+        yield return new WaitForSeconds(1f); // 延迟1秒再生成新的球
         SpawnBall();
     }
 
     private void SpawnBall()
     {
-        if (!isGameOver)
-        {
-            Instantiate(soccerPrefab, spawnPoint.position, spawnPoint.rotation); // 在spawnPoint位置生成球
-        }
+        Instantiate(soccerPrefab, spawnPoint.position, spawnPoint.rotation); // 在spawnPoint位置生成球
+    }
+
+    public void SetGameOver(bool value)
+    {
+        isGameOver = value;
+    }
+
+    public void SetBallDestroyed(bool value)
+    {
+        isBallDestroyed = value;
     }
 
     private void StopAllBalls()
@@ -80,20 +87,15 @@ public class GameManager : MonoBehaviour
         Soccer[] soccerBalls = FindObjectsOfType<Soccer>();
         foreach (Soccer ball in soccerBalls)
         {
-            Destroy(ball.gameObject); // 銷毀正在場景中移動的球
+            Destroy(ball.gameObject);
         }
     }
 
-    public void SetGameOver()
+    public void RestartGame()
     {
-        isGameOver = true;
-        StopAllBalls();
-    }
-
-    public void ResetGame()
-    {
-        StopAllCoroutines();
-        isGameOver = false;
-        StartCoroutine(GameLoop());
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        isGameOver = false; // 重新开始游戏时重置游戏状态
+        isBallDestroyed = false; // 重新开始游戏时重置球的状态
+        StartCoroutine(GameLoop()); // 重新开始游戏循环
     }
 }
