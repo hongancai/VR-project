@@ -32,7 +32,7 @@ public class Soccer : MonoBehaviour
 
         if (ScoreManager.Instance != null)
         {
-            ScoreManager.Instance.AddScore(50);
+            ScoreManager.Instance.AddScore(1);
         }
 
         Destroy(gameObject);

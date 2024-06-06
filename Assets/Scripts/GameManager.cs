@@ -69,7 +69,10 @@ public class GameManager : MonoBehaviour
 
     private void SpawnBall()
     {
-        Instantiate(soccerPrefab, spawnPoint.position, spawnPoint.rotation); // 在spawnPoint位置生成球
+        if (!isGameOver)
+        {
+            Instantiate(soccerPrefab, spawnPoint.position, spawnPoint.rotation); // 在spawnPoint位置生成球
+        }
     }
 
     private void StopAllBalls()
@@ -79,5 +82,18 @@ public class GameManager : MonoBehaviour
         {
             Destroy(ball.gameObject); // 銷毀正在場景中移動的球
         }
+    }
+
+    public void SetGameOver()
+    {
+        isGameOver = true;
+        StopAllBalls();
+    }
+
+    public void ResetGame()
+    {
+        StopAllCoroutines();
+        isGameOver = false;
+        StartCoroutine(GameLoop());
     }
 }

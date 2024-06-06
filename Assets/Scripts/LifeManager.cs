@@ -9,16 +9,18 @@ public class LifeManager : MonoBehaviour
     public Image heart1;
     public Image heart2;
     public Image heart3;
-    
+
     public GameObject pnlGameOver;
-	public TextMeshProUGUI scoreText; 
+    public TextMeshProUGUI scoreText;
 
     private int lives = 3;
+
     // Start is called before the first frame update
     void Start()
     {
         pnlGameOver.SetActive(false);
     }
+
     public void ReduceLife()
     {
         lives--;
@@ -29,6 +31,7 @@ public class LifeManager : MonoBehaviour
             GameOver();
         }
     }
+
     private void UpdateLivesUI()
     {
         if (lives < 3)
@@ -44,8 +47,11 @@ public class LifeManager : MonoBehaviour
             heart1.enabled = false;
         }
     }
+
     private void GameOver()
     {
         pnlGameOver.SetActive(true);
+        scoreText.text = "Score: " + ScoreManager.Instance.GetScore();
+        GameManager.Instance.SetGameOver();
     }
 }

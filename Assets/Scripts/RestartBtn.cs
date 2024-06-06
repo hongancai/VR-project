@@ -21,6 +21,10 @@ public class RestartBtn : MonoBehaviour
     }
     private void Onrestartbtn()
     {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ResetGame();
+        }
         SceneManager.LoadScene("S2");
     }
 }

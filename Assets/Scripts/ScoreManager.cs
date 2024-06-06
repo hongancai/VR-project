@@ -1,17 +1,14 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
-using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager Instance;
-
-    public TextMeshProUGUI scoreText;
+    public static ScoreManager Instance { get; private set; }
 
     private int score = 0;
 
-    void Awake()
+    private void Awake()
     {
         if (Instance == null)
         {
@@ -24,22 +21,13 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        UpdateScoreUI();
-    }
-
     public void AddScore(int points)
     {
         score += points;
-        UpdateScoreUI();
     }
 
-    private void UpdateScoreUI()
+    public int GetScore()
     {
-        if (scoreText != null)
-        {
-            scoreText.text = "Score: " + score.ToString();
-        }
+        return score;
     }
 }
